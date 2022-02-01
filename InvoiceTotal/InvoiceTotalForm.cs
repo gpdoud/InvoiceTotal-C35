@@ -22,6 +22,10 @@ namespace InvoiceTotal {
             decimal subtotal = 0;
             try {
                 subtotal = Convert.ToDecimal(txtSubtotal.Text);
+                if(subtotal <= 0 || subtotal > 10000) {
+                    MessageBox.Show("Subtotal must be between 0 and 10,000", "Error Entry");
+                    return;
+                }
             } catch {
                 MessageBox.Show("Subtotal must be numeric", "Error Entry");
                 return;
