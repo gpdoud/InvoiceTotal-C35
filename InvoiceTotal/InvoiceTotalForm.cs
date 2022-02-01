@@ -15,7 +15,10 @@ namespace InvoiceTotal {
         }
 
         private void btnCalculate_Click(object sender, EventArgs e) {
-
+            if(txtSubtotal.Text == "") {
+                MessageBox.Show("Subtotal is required", "Error Entry");
+                return;
+            }
             decimal subtotal = 0;
             try {
                 subtotal = Convert.ToDecimal(txtSubtotal.Text);
