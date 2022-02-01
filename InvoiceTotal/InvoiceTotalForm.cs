@@ -16,7 +16,13 @@ namespace InvoiceTotal {
 
         private void btnCalculate_Click(object sender, EventArgs e) {
 
-            decimal subtotal = Convert.ToDecimal(txtSubtotal.Text);
+            decimal subtotal = 0;
+            try {
+                subtotal = Convert.ToDecimal(txtSubtotal.Text);
+            } catch {
+                MessageBox.Show("Subtotal must be numeric", "Error Entry");
+                return;
+            }
             decimal discountPercent = .2m;               
             decimal discountAmount = subtotal * discountPercent;
             decimal invoiceTotal = subtotal - discountAmount;
